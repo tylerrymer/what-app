@@ -1,0 +1,38 @@
+$primaryBackground: #6200EE;
+$secondaryBackground: #3700B3;
+$alternateBackground: #BB86FC;
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.App {
+  background-color: #fff;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.mainNav {
+  background-color: $secondaryBackground;
+  padding: 20px;
+  width: 100%;
+}
+
+.mainNavTitle {
+  color: #fff;
+  font-size: 32px;
+  margin: 0;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.userNameLabel {
+  color: $alternateBackground;
+}

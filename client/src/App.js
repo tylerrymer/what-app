@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 
-import logo from './logo.svg';
-
-import './App.css';
+import './App.scss';
 
 class App extends Component {
-  state = {
-    response: '',
-    post: '',
-    responseToPost: '',
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      response: '',
+      post: '',
+      responseToPost: '',
+    };
+
+  }
 
   componentDidMount() {
     this.callApi()
@@ -17,7 +20,7 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
-  callApi = async () => {
+  async callApi() {
     const response = await fetch('/api/hello');
     const body = await response.json();
 
@@ -26,7 +29,7 @@ class App extends Component {
     return body;
   };
 
-  handleSubmit = async e => {
+  async handleSubmit(e) {
     e.preventDefault();
     const response = await fetch('/api/world', {
       method: 'POST',
@@ -43,25 +46,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-        <p>{this.state.response}</p>
+        <nav className="mainNav">
+          <h1 className="mainNavTitle">What App</h1>
+        </nav>
         <form onSubmit={this.handleSubmit}>
-          <p>
-            <strong>Post to Server:</strong>
-          </p>
+          <h1 className="userNameLabel">Name:</h1>
           <input
             type="text"
             value={this.state.post}
